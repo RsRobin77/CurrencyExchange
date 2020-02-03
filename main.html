@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Currency Converter</title>
+	<link rel="stylesheet" type="text/css" href="design.css">
+</head>
+<body>
+
+<fieldset>
+	<div>
+		<label><b>Currency:</b> </label>
+		<input id="currency" name="currency" type="text">
+
+		<select id="currency_type">
+  			<option value="bdt">BDT</option>
+  			<option value="usd">USD</option>
+  			<option value="sgd">SGD</option>
+  			<option value="cad">CAD</option>
+		</select>
+
+	</div>
+
+	<div class="buttonclass">
+		<button id="submit_button" type="button" onclick="clickText()" >Submit</button>
+	</div>
+
+
+<p id="print_text"></p>
+
+ 
+</fieldset>
+
+<p>
+<script type="text/javascript">
+		function clickText() {
+			var dd_select=document.getElementById("currency_type");
+			var dd_text=dd_select.options[dd_select.selectedIndex].innerHTML;
+
+			var number=document.getElementById("currency").value;
+
+		var preview= document.getElementById("print_text");
+		
+		if (dd_text=== "BDT") {
+
+			var usd=number*.012;
+			var sgd=number*.016;
+			var cad=number*.016;
+
+
+			preview.innerHTML="USD = "+usd+"<br/>SGD = "+sgd+"<br/>CAD = "+cad ;
+		}
+		else if (dd_text=== "USD"){
+			var bdt=number*84.81;
+			var sgd=number*1.36;
+			var cad=number*1.32;
+
+			preview.innerHTML="BDT = "+bdt+"<br/>SGD = "+sgd+"<br/>CAD = "+cad ;
+
+		}
+		else if (dd_text=== "SGD"){
+			var usd=number*0.73;
+			var bdt=number*62.14;
+			var cad=number*0.97;
+
+			preview.innerHTML="BDT = "+bdt+"<br/>USD = "+usd+"<br/>CAD = "+cad ;
+
+		}
+
+		else if (dd_text=== "CAD"){
+			var usd=number*0.76;
+			var sgd=number*1.03;
+			var bdt=number*64.07;
+
+			preview.innerHTML="BDT = "+bdt+"<br/>USD = "+usd+"<br/>SGD = "+sgd ;
+
+		}
+
+		}
+	</script>
+
+	</p>
+</body>
+</html>
